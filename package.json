@@ -26,7 +26,8 @@
     "release": " pnpm build & release"
   },
   "dependencies": {
-    "@zzj/ts-utils": "https://github.com/zhangzj97/ts-utils/releases/download/v0.1.3/dist.tar.gz"
+    "@zzj/ts-utils": "https://github.com/zhangzj97/ts-utils/releases/download/v0.1.3/dist.tar.gz",
+    "typeorm": "^1.1.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
