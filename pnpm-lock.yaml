@@ -208,8 +208,8 @@ importers:
   .:
     dependencies:
       '@zzj/ts-utils':
-        specifier: https://github.com/zhangzj97/ts-utils/releases/download/v0.1.3/dist.tar.gz
-        version: ts-utils@https://github.com/zhangzj97/ts-utils/releases/download/v0.1.3/dist.tar.gz
+        specifier: https://github.com/zhangzj97/ts-utils/releases/download/v0.1.9/dist.tar.gz
+        version: ts-utils@https://github.com/zhangzj97/ts-utils/releases/download/v0.1.9/dist.tar.gz
       typeorm:
         specifier: ^1.1.0
         version: 1.1.0
@@ -1059,9 +1059,10 @@ packages:
     resolution: {integrity: sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==}
     hasBin: true
 
-  ts-utils@https://github.com/zhangzj97/ts-utils/releases/download/v0.1.3/dist.tar.gz:
-    resolution: {integrity: sha512-/OSmv59NItR7+D7ope52fUgaxdj+/7nqdA5rz4dpU0O9hLXQB6JHb7fwhJqH3pbvlGGv9DLJfA/lNsAE6vlcqQ==, tarball: https://github.com/zhangzj97/ts-utils/releases/download/v0.1.3/dist.tar.gz}
-    version: 0.1.3
+  ts-utils@https://github.com/zhangzj97/ts-utils/releases/download/v0.1.9/dist.tar.gz:
+    resolution: {integrity: sha512-YEyovdjEf3tzMk+1PpB7q3UsT6/BqX6FCx++3RC2QQPna6Vi7nCbSonmcVAtxxpKkkvQbR9JvfnEhYzuIlM9ng==, tarball: https://github.com/zhangzj97/ts-utils/releases/download/v0.1.9/dist.tar.gz}
+    version: 0.1.9
+    hasBin: true
 
   tsdown@0.22.3:
     resolution: {integrity: sha512-louqbfA8Qf//B9jTTL0FPtXTNpjCWv1VPkbcmQMph2pTpzs+LnB1tbe4tDDRVpo2BjF5SgUXaTZe45SxB8pWHg==}
@@ -1764,7 +1765,7 @@ snapshots:
 
   tree-kill@1.2.2: {}
 
-  ts-utils@https://github.com/zhangzj97/ts-utils/releases/download/v0.1.3/dist.tar.gz:
+  ts-utils@https://github.com/zhangzj97/ts-utils/releases/download/v0.1.9/dist.tar.gz:
     dependencies:
       '@sapphire/snowflake': 3.5.5
 
