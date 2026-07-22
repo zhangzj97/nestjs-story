@@ -5,6 +5,9 @@
   "keywords": [],
   "license": "ISC",
   "author": "",
+  "bin": {
+    "story": "./dist/story.mjs"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -19,7 +22,7 @@
   "scripts": {
     "type-check": "tsc --noEmit",
     "dev": "tsx src/index.ts",
-    "build": "tsdown src/index.ts --format esm,cjs --dts --clean",
+    "build": "tsdown src/index.ts src/story.ts --format esm,cjs --dts --clean",
     "release": "node scripts/release.js"
   },
   "dependencies": {
