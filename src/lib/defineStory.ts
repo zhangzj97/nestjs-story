@@ -3,6 +3,15 @@ type CodeEntity<T> = {
   title: string;
 } & T;
 
+type StoryModel = CodeEntity<{
+  typeText: string;
+
+  fieldList: CodeEntity<{
+    typeText: string;
+    optional: boolean;
+  }>[];
+}>;
+
 /**
  * 基础规则
  * 1. code 都是 小驼峰
@@ -52,22 +61,16 @@ export type Story = CodeEntity<{
 
   /**
    * [AI生成]对应的 model
-   * 1. {code}Dto
-   * 2. {code}Vo
    */
-  actionList: CodeEntity<{}>[];
+  actionList: CodeEntity<{
+    m1: Omit<StoryModel, "code" | "title">;
+    m2: Omit<StoryModel, "code" | "title">;
+  }>[];
 
   /**
    * 1. 特别复杂的 model
    */
-  modelList: CodeEntity<{
-    typeText: string;
-
-    fieldList: CodeEntity<{
-      typeText: string;
-      optional: boolean;
-    }>[];
-  }>[];
+  modelList: StoryModel[];
 }>;
 
 class StoryService {
@@ -237,6 +240,12 @@ class StoryService {
       this.actionMap.set(`${serviceCode}.${i}`, {
         code: `${serviceCode}.${i}`,
         title: `${serviceCode}.${i}`,
+        m1: {
+          ...crudFieldListMap[`${i}M1`],
+        },
+        m2: {
+          ...crudFieldListMap[`${i}M2`],
+        },
       });
       this.modelMap.set(`${serviceCode}.${i}M1`, {
         code: `${serviceCode}.${i}M1`,
@@ -260,6 +269,17 @@ class StoryService {
     action: Story["actionList"][number], //
   ): void {
     this.actionMap.set(action.code, action);
+
+    this.modelMap.set(`${action.code}M1`, {
+      ...action.m1,
+      code: `${action.code}M1`,
+      title: `${action.code}M1`,
+    });
+    this.modelMap.set(`${action.code}M2`, {
+      ...action.m2,
+      code: `${action.code}M2`,
+      title: `${action.code}M2`,
+    });
   }
   private model(
     model: Story["modelList"][number], //
