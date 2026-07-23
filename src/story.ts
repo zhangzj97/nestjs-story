@@ -40,14 +40,15 @@ const main = async (rootDirPath: string) => {
   })();
 
   (() => {
-    mkdirSync(join(rootDirPath, `src`, `_`));
+    mkdirSync(join(rootDirPath, `src`, `impl`));
 
     // 清空
-    readdirSync(join(rootDirPath, `src`, `_`)).forEach((i) => {
-      if (statSync(join(rootDirPath, `src`, `_`, i)).isFile()) rmSync(join(rootDirPath, `src`, i));
+    readdirSync(join(rootDirPath, `src`, `impl`)).forEach((i) => {
+      if (statSync(join(rootDirPath, `src`, `impl`, i)).isFile())
+        rmSync(join(rootDirPath, `src`, i));
     });
 
-    writeFileSync(join(rootDirPath, `src`, `_`, `.crud`), "");
+    writeFileSync(join(rootDirPath, `src`, `impl`, `.crud`), "");
 
     const joinPresetImplTx = (action: Story["actionList"][number]) => {
       const template = {
@@ -130,7 +131,7 @@ const main = async (rootDirPath: string) => {
 
     data.actionList.forEach((action) => {
       writeFileSync(
-        join(rootDirPath, `src`, `_`, `${action.code}.ts`),
+        join(rootDirPath, `src`, `impl`, `${action.code}.ts`),
         joinText(
           `import { Define } from "@/app/story";`, //
           ``,
@@ -539,7 +540,7 @@ export class StoryServiceImpl1 {
 
     this.actionText.importImplList.push(
       joinText(
-        `import impl_${code1}_${code2} from '@/${code1}.${code2}'`, //
+        `import impl_${code1}_${code2} from '@/impl/${code1}.${code2}'`, //
       ),
     );
 
