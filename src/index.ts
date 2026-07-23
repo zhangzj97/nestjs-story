@@ -3,7 +3,6 @@ import { InjectRepository } from "@nestjs/typeorm";
 import z, { ZodType } from "zod";
 
 import { StoryTable } from "./table";
-export { StoryTable } from "./table";
 export { defineStory } from "./lib/defineStory";
 export { defineImpl } from "./lib/defineImpl";
 
@@ -21,6 +20,12 @@ export namespace AppDec {
 }
 
 export namespace AppModel {
+  export namespace _table {
+    export class empty extends StoryTable.Parent.empty {}
+    export class base extends StoryTable.Parent.base {}
+    export class tenant extends StoryTable.Parent.tenant {}
+  }
+
   export type byIdM1 = { id: string };
 
   export type getM1<_T> = byIdM1;

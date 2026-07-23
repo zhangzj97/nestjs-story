@@ -6,10 +6,10 @@ import { TableFieldFactory } from "./TableFieldFactory";
 
 export namespace StoryTable {
   export namespace Dec {
-    export const tableField = (config: Story["tableList"][number]["fieldList"][number]) => {
+    export const tableField = (field: Story["tableList"][number]["fieldList"][number]) => {
       const fieldStrategy = new MapStrategy(TableFieldFactory);
-      fieldStrategy.setCode(config.strategy);
-      return fieldStrategy.getValue();
+      fieldStrategy.setCode(field.strategy);
+      return fieldStrategy.getValue()(field.title);
     };
     export const table = Entity;
   }

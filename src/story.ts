@@ -292,7 +292,7 @@ export class StoryServiceImpl0 {
       joinText(
         template.comment(table.title),
         `@AppDec.table("${table.code}")`,
-        `export class ${table.code} extends AppTableParent.${table.strategy} {`,
+        `export class ${table.code} extends AppModel._table.${table.strategy} {`,
         ...table.fieldList.map((field) => {
           return joinText(
             template.comment(field.title),
@@ -329,7 +329,7 @@ export class StoryServiceImpl0 {
 
     this.actionText.defineList.push(
       template.comment(action.title),
-      `"${code1}.${code2}": impl<`,
+      `"${code1}.${code2}": defineImpl<`,
       `  _Local.Model.${code1}.${code2}M1, //`,
       `  _Local.Model.${code1}.${code2}M2, //`,
       `  _Local.Provider //`,
@@ -438,7 +438,7 @@ export class StoryServiceImpl0 {
       };
 
     return joinText(
-      joinImportText(`./_.000`)("AppModel", "AppDec", "AppTableParent", "impl"),
+      joinImportText(`@zzj/nestjs-story`)("AppModel", "AppDec", "defineImpl"),
       joinImportText(`@zzj/nestjs-infra`)("InfraService"),
       joinImportText(`typeorm`)("Repository"),
       ``,
@@ -700,7 +700,7 @@ export class StoryServiceImpl1 {
       };
 
     return joinText(
-      joinImportText(`./_.000`)("AppModel", "AppDec", "AppTableParent"),
+      joinImportText(`@zzj/nestjs-story`)("AppModel", "AppDec", "defineImpl"),
       joinImportText(`@zzj/nestjs-infra`)("InfraService"),
       joinImportText(`typeorm`)("Repository"),
       joinImportText(`./_.111`)("_Repo", "_Api", "_Local"),
@@ -778,7 +778,7 @@ export class StoryServiceImpl1 {
       };
 
     return joinText(
-      joinImportText(`./_.000`)("AppModel", "AppDec", "AppTableParent"),
+      joinImportText(`@zzj/nestjs-story`)("AppModel", "AppDec", "defineImpl"),
       joinImportText(`@zzj/nestjs-infra`)("InfraService"),
       joinImportText(`typeorm`)("Repository"),
       joinImportText(`./_.111.${this.options.code}`)("_Repo", "_Api", "_Local"),
