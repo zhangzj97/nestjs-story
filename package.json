@@ -26,8 +26,11 @@
     "release": " pnpm build & release"
   },
   "dependencies": {
+    "@nestjs/common": "^11.1.28",
+    "@nestjs/typeorm": "^11.0.3",
     "@zzj/ts-utils": "https://github.com/zhangzj97/ts-utils/releases/download/v0.1.9/dist.tar.gz",
-    "typeorm": "^1.1.0"
+    "typeorm": "^1.1.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
