@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
+import { mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path/posix";
 import { pathToFileURL } from "node:url";
 
@@ -40,12 +40,14 @@ const main = async (rootDirPath: string) => {
   })();
 
   (() => {
+    mkdirSync(join(rootDirPath, `src`, `_`));
+
     // 清空
-    readdirSync(join(rootDirPath, `src`)).forEach((i) => {
-      if (statSync(join(rootDirPath, `src`, i)).isFile()) rmSync(join(rootDirPath, `src`, i));
+    readdirSync(join(rootDirPath, `src`, `_`)).forEach((i) => {
+      if (statSync(join(rootDirPath, `src`, `_`, i)).isFile()) rmSync(join(rootDirPath, `src`, i));
     });
 
-    writeFileSync(join(rootDirPath, `src`, `.crud`), "");
+    writeFileSync(join(rootDirPath, `src`, `_`, `.crud`), "");
 
     const joinPresetImplTx = (action: Story["actionList"][number]) => {
       const template = {
@@ -128,7 +130,7 @@ const main = async (rootDirPath: string) => {
 
     data.actionList.forEach((action) => {
       writeFileSync(
-        join(rootDirPath, `src`, `${action.code}.ts`),
+        join(rootDirPath, `src`, `_`, `${action.code}.ts`),
         joinText(
           `import { Define } from "@/app/story";`, //
           ``,
